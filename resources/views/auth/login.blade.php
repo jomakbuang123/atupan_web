@@ -142,13 +142,17 @@
 
     <div class="login-container">
         <h2>Login</h2>
-        <form action="/submit_login" method="POST">
+        <form action="{{ url('login')}}" method="POST">
+
+        @csrf
+
+
             <div class="input-container">
-                <input type="text" name="username" placeholder="Username" required>
+                <input type="text" name="username" :value="old('username')" placeholder="Username" required>
                 <span class="user-icon">&#128100;</span> <!-- User icon (Unicode character) -->
             </div>
             <div class="input-container">
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" :value="old('password')" placeholder="Password" required>
                 <span class="lock-icon">&#128274;</span> <!-- Lock icon (Unicode character) -->
             </div>
             <button type="submit">Login</button>
